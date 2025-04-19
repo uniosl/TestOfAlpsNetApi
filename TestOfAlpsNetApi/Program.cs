@@ -2,6 +2,12 @@
 using alps.net.api.parsing;
 using alps.net.api.StandardPASS;
 
+// Creating paths inside project
+string currentDirectory = Directory.GetCurrentDirectory();
+string passPath = Path.Combine(currentDirectory, "PASS_Files", "ONTs", "standard_PASS_ont_dev.owl");
+string alpsPath = Path.Combine(currentDirectory, "PASS_Files", "ONTs", "ALPS_ont_v_0.8.0.owl");
+string urlaubAntragOWL = Path.Combine(currentDirectory, "PASS_Files", "Models", "Urlaubsantrag_Discord_Uebung.owl");
+
 Console.WriteLine("Start Loading PASS Models and Ontologies.");
 
 IPASSReaderWriter io = PASSReaderWriter.getInstance();
@@ -9,13 +15,13 @@ IPASSReaderWriter io = PASSReaderWriter.getInstance();
 // Prepare the paths to the structure-defining owl files
 IList<string> paths = new List<string>
 {
-    "C:/Users/oster/Documents/SPSEAE/OWL Ontologies/ALPS_ONT-main/ALPS_ont_v_0.8.0.owl",
-    "C:/Users/oster/Documents/SPSEAE/OWL Ontologies/Standard-PASS-Ontology-main/standard_PASS_ont_dev.owl",
+    passPath,
+    alpsPath,
 };
 // Load these files once (no future calls neded)
 io.loadOWLParsingStructure(paths);
 
-IList<IPASSProcessModel> models = io.loadModels(new List<string> { "C:/Users/oster/Documents/SPSEAE/VisioDump/Urlaubsantrag_Discord_Übung.owl" });
+IList<IPASSProcessModel> models = io.loadModels(new List<string> { urlaubAntragOWL });
 
 IDictionary<string, IPASSProcessModelElement> processModelElements = models[0].getAllElements();
 

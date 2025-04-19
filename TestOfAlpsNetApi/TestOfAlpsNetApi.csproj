@@ -11,4 +11,16 @@
     <PackageReference Include="alps.net.api" Version="0.9.1.7" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="PASS_Files\Models\Urlaubsantrag_Discord_Uebung.owl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="PASS_Files\ONTs\ALPS_ont_v_0.8.0.owl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="PASS_Files\ONTs\standard_PASS_ont_dev.owl">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
